@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <body class="antialiased">
         <div id="app">
-            <index/>
+            <join/>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
