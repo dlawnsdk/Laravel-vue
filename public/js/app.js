@@ -19478,10 +19478,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+var join = function join() {
+  window.location.href = '/join';
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup() {
     return {
-      hello: '안녕하세요 Laravel + Vue 프로젝트의 index 화면'
+      hello: '안녕하세요 Laravel + Vue 프로젝트의 index 화면',
+      join: join
     };
   }
 });
@@ -19507,8 +19511,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     saveData: function saveData() {
+      var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // CSRF 토큰 가져오기
+
       axios.post('/joinSave', {
         name: this.name
+      }, {
+        // headers: {
+        //     'X-CSRF-TOKEN': csrfToken // CSRF 토큰 헤더 추가
+        // }
       }).then(function (response) {
         console.log(response);
       })["catch"](function (error) {
@@ -19534,7 +19544,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h1", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.hello), 1 /* TEXT */);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.hello), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $setup.join();
+    })
+  }, "회원가입")], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
