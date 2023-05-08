@@ -1,7 +1,9 @@
 <template>
     <div>
         <form @submit.prevent="saveData">
-            <input type="text" v-model="name">
+            <input type="text" v-model="userid">
+            <input type="text" v-model="email">
+            <input type="text" v-model="password">
             <button type="submit">Save</button>
         </form>
     </div>
@@ -12,7 +14,9 @@
 export default {
     data() {
         return {
-            name: ''
+            userid: '',
+            email: '',
+            password: '',
         }
     },
     methods: {
@@ -20,14 +24,16 @@ export default {
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // CSRF 토큰 가져오기
 
             axios.post('/joinSave', {
-                name: this.name
+                userid: this.userid,
+                email: this.email,
+                password: this.password
             }, {
                 // headers: {
                 //     'X-CSRF-TOKEN': csrfToken // CSRF 토큰 헤더 추가
                 // }
             })
                 .then(response => {
-                    console.log(response);
+                    console.log(response);d
                 })
                 .catch(error => {
                     console.log(error);
