@@ -4,6 +4,7 @@
 </template>
 
 <script>
+console.log("test")
 const join = () => {
     window.location.href = '/join'
 };

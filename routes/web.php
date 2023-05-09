@@ -16,7 +16,7 @@ use App\Http\Controllers\memberController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/join', function(){
     return view('join');

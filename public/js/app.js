@@ -19478,6 +19478,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+console.log("test");
 var join = function join() {
   window.location.href = '/join';
 };
@@ -19525,7 +19526,7 @@ __webpack_require__.r(__webpack_exports__);
         // }
       }).then(function (response) {
         console.log(response);
-        d;
+        window.location.href = '/';
       })["catch"](function (error) {
         console.log(error);
       });
