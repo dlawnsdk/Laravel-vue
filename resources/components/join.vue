@@ -21,19 +21,13 @@ export default {
     },
     methods: {
         saveData() {
-            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // CSRF 토큰 가져오기
-
             axios.post('/joinSave', {
                 userid: this.userid,
                 email: this.email,
                 password: this.password
-            }, {
-                // headers: {
-                //     'X-CSRF-TOKEN': csrfToken // CSRF 토큰 헤더 추가
-                // }
-            })
-                .then(response => {
+            }).then(response => {
                     console.log(response);
+                    alert("데이터 저장 성공")
                     window.location.href = '/';
                 })
                 .catch(error => {

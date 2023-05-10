@@ -3,22 +3,21 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\member;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
-
 class memberController extends Controller {
+    # 저장
     public function joinSave(Request $request): void
     {
-        /**
-         * 쿼리빌더 사용
-         * 회원가입
-         */
-        DB::table('users')->insert
-        ([
-            'userid' => $request->input('userid')
-            , 'password' => $request->input('password')
-            , 'email' => $request->input('email')
-            , 'timestamps'=> date("Y-m-d H:i:s")
-        ]);
+        $member = new member();
+        $member->joinSave($request->all());
+    }
+
+    public function joinList(): array
+    {
+        $list = array();
+
+        $member = new member();
+        $list = $member->joinList();
+
+        return $list;
     }
 }
