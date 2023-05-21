@@ -17,15 +17,3 @@ use App\Http\Controllers\memberController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/join', function(){
-    return view('join');
-});
-
-Route::post('/joinSave', [memberController::class, 'joinSave']);
-
-#Route::get('/joinList', [memberController::class, 'joinList']);
-
-Route::get('/joinList', function(){
-    return view('joinList');
-});

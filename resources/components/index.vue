@@ -1,26 +1,22 @@
 <template>
-    <h1>{{ hello }}</h1>
-    <button v-on:click="join()">데이터 저장</button>
-    <button v-on:click="list()">데이터 목록</button>
+    <h1>{{ number }}</h1>
+    <h1>{{ number2 }}</h1>
+    <button v-on:click="plus()">더하기 버튼</button>
 </template>
 
 <script>
-console.log("test")
-const join = () => {
-    window.location.href = '/join'
-};
-
-const list = () => {
-    window.location.href = '/joinList'
-}
-
 export default {
-    setup() {
+    data() {
         return {
-            hello: '안녕하세요 Laravel + Vue 프로젝트의 index 화면',
-            join,
-            list
+            number: 0,
+            number2: 10
         };
+    },
+    methods: {
+        plus(){
+            this.number2 -= 1;
+            this.number += 1;
+        }
     }
 };
 </script>
