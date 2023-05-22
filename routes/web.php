@@ -17,3 +17,11 @@ use App\Http\Controllers\memberController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/chackLogin', function() {
+    return "로그인 성공";
+});
+
+Route::get('/home', function() {
+    return view('/home/list');
+});
